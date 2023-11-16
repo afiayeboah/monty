@@ -20,7 +20,7 @@ void swap_stack(stack_t **stack, unsigned int line_number)
 	if (node_count < 2)
 	{
 		dprintf(2, "L%u: can't swap, stack too short\n", line_number);
-		free_vglo();
+		free_global();
 		exit(EXIT_FAILURE);
 	}
 

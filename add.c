@@ -20,7 +20,7 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 	if (node_count < 2)
 	{
 		dprintf(2, "L%u: can't add, stack too short\n", line_number);
-		free_vglo();
+		free_global();
 		exit(EXIT_FAILURE);
 	}
 

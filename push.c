@@ -1,65 +1,40 @@
 #include "monty.h"
 
 /**
- * push_stack - Pushes an element to the stack.
+ * _push - pushes an element to the stack
  *
- * @stack: Pointer to the head of the linked list (stack)
- * @line_number: Line number
- *
- * Return: No return
+ * @stack: head of the linked list
+ * @line_number: line number
+ * Return: no return
  */
-void push_stack(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_number)
 {
-	int value, index;
+	int num, index;
 
-	if (!vglo.arg)
+	if (!global.param)
 	{
-		dprintf(2, "L%u: ", line_number);
-		dprintf(2, "usage: push integer\n");
-		free_vglo();
-		exit(EXIT_FAILURE);
+	dprintf(2, "L%u: ", line_number);
+	dprintf(2, "usage: push integer\n");
+	free_global();
+	exit(EXIT_FAILURE);
 	}
 
-	for (index = 0; vglo.arg[index] != '\0'; index++)
+	for (index = 0; global.param[index] != '\0'; index++)
 	{
-		if (!isdigit(vglo.arg[index]) && vglo.arg[index] != '-')
-		{
-			dprintf(2, "L%u: ", line_number);
-			dprintf(2, "usage: push integer\n");
-			free_vglo();
-			exit(EXIT_FAILURE);
-		}
+	if (!isdigit(global.param[index]) && globak.param[index] != '-')
+	{
+	dprintf(2, "L%u: ", line_number);
+	dprintf(2, "usage: push integer\n");
+	free_global();
+	exit(EXIT_FAILURE);
 	}
 
-	value = atoi(vglo.arg);
+	num = atoi(global.param);
 
-	if (vglo.lifo == 1)
-		add_dnodeint(stack, value);
+	if (global.is_stack == 1)
+	add_node_to_start(stack, num);
 	else
-		add_dnodeint_end(stack, value);
+	add_node_to_end(stack, num);
+
 }
-
-/**
- * f_pall - Prints the stack.
- *
- * @doubly: Pointer to the head of the linked list (stack).
- * @cline: Line number (not used).
- * Return: No return.
- */
-
-void f_pall(stack_t **doubly, unsigned int cline)
-{
-	stack_t *current;
-	(void)cline;
-
-	current = *doubly;
-
-	if (current == NULL)
-	return;
-
-	while (current)
-	{
-	printf("%d\n", current->n);
-	current = current->next;
-	}
 }

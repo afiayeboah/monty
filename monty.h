@@ -27,26 +27,27 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct global_data - Global data for program functions
+ * global - Global data for program functions
  * @is_stack: Flag for stack (1) or queue (0) mode
  * @curr_line: Pointer to current line content
  * @param: Pointer to second parameter in the line
- * @list_node: Pointer to doubly linked list node
- * @file_desc: File descriptor
+ * @head: Pointer to doubly linked list node
+ * @file: File descriptor
  * @input_buffer: Pointer to input text buffer
  *
  * Description: Holds global data for Holberton project functions involving
  *              stack, queue, LIFO, and FIFO operations.
  */
-typedef struct global_data
+typedef struct global
 {
 	int is_stack;
 	char *curr_line;
 	char *param;
-	struct Node *list_node;
-	int file_desc;
+	stack_t *head;
+	int file;
 	char *input_buffer;
-} global_data_t;
+} global_t;
+extern global_t global;
 
 /**
  * struct instruction_s - opcode and its function
@@ -62,10 +63,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern global_data_t global_data;
-
 /* main */
-void free_global_data(void);
+void free_global(void);
 
 /* imported functions */
 int find_char(char *s, char c);

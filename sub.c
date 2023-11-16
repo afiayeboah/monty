@@ -21,7 +21,7 @@ void subtract_nodes(stack_t **doubly, unsigned int cline)
 	if (node_count < 2)
 	{
 	dprintf(2, "L%u: can't sub, stack too short\n", cline);
-	free_vglo();
+	free_global();
 	exit(EXIT_FAILURE);
 	}
 

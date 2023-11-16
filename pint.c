@@ -15,7 +15,7 @@ void pint_str(stack_t **stack, unsigned int line_number)
 	{
 	dprintf(2, "L%u: ", line_number);
 	dprintf(2, "can't pint, stack empty\n");
-	free_vglo();
+	free_global();
 	exit(EXIT_FAILURE);
 	}
 

@@ -23,9 +23,9 @@ void divide_nodes(stack_t **doubly, unsigned int cline)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", cline);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*doubly);
+		fclose(global.file);
+		free_global();
+		free_doubly_list(*doubly);
 		exit(EXIT_FAILURE);
 	}
 
@@ -34,9 +34,9 @@ void divide_nodes(stack_t **doubly, unsigned int cline)
 	if (current->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", cline);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*doubly);
+		fclose(global.file);
+		free_global();
+		free_doubly_list(*doubly);
 		exit(EXIT_FAILURE);
 	}
 
