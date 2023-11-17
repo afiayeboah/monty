@@ -7,7 +7,7 @@
  */
 void nop(node **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+(void)stack;
+(void)line_number;
 
 }
