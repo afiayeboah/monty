@@ -23,7 +23,7 @@ void printchar(node **stack, unsigned int line_number)
  * @stack: Pointer to a pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void printstr(node **stack)
+void printstr(node **stack, unsigned int line_number __attribute__((unused)))
 {
     int ascii;
     node *tmp;
@@ -51,7 +51,7 @@ void printstr(node **stack)
  * @stack: Pointer to a pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void rotleft(node **stack)
+void rotleft(node **stack, unsigned int line_number __attribute__((unused)))
 {
     node *tmp;
 
@@ -74,7 +74,7 @@ void rotleft(node **stack)
  * @stack: Pointer to a pointer pointing to the top node of the stack.
  * @line_number: Integer representing the line number of the opcode.
  */
-void rotright(node **stack, unsigned int _)
+void rotright(node **stack, unsigned int line_number __attribute__((unused)))
 {
     node *tmp;
 

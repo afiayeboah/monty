@@ -85,12 +85,12 @@ void moreerror(int errorcode, ...)
 }
 
 /**
- * stringerror - Handles string-related errors.
+ * str_error - Handles string-related errors.
  * @errorcode: The error codes are as follows:
  * (10) => The number inside a node is outside ASCII bounds.
  * (11) => The stack is empty.
  */
-void stringerror(int errorcode, ...)
+void str_error(int errorcode, ...)
 {
 	va_list args;
 	int lineNum;

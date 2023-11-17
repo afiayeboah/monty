@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <ctype.h>
 #include <stdarg.h>
 
@@ -26,21 +27,21 @@ typedef struct node
 } node;
 
 /**
- * struct inst - opcode and its function
- * @op: the opcode
- * @f: function to handle the opcode
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle opcode
  *
- * Description: opcode and its function
+ * Description: opcode and their function
  * for stack, queues, LIFO, FIFO
  */
-typedef struct inst
+typedef struct instruction_s
 {
-    char *op;
+    char *opcode;
     void (*f)(node **stack, unsigned int line);
-} inst;
+} instruction_t;
 
 extern node *head;
-typedef void (*opFunc)(node **, unsigned int);
+typedef void (*opfunc)(node **, unsigned int);
 
 /*file operations*/
 void openfile(char *fname);
@@ -56,11 +57,11 @@ void printstack(node **, unsigned int);
 void addtostack(node **, unsigned int);
 void addtoqueue(node **, unsigned int);
 
-void callfunc(opFunc, char *, char *, int, int);
+void callfunc(opfunc, char *, char *, int, int);
 
 void printtop(node **, unsigned int);
 void poptop(node **, unsigned int);
-void nopop(node **, unsigned int);
+void nop(node **, unsigned int);
 void swapnodes(node **, unsigned int);
 
 /*Math operations with nodes*/
@@ -72,8 +73,8 @@ void modnodes(node **, unsigned int);
 
 /*String operations*/
 void printchar(node **, unsigned int);
-void printstr(node **stack);
-void rotleft(node **stack);
+void printstr(node **, unsigned int);
+void rotleft(node **, unsigned int);
 
 /*Error handling*/
 void handleerror(int errorcode, ...);
